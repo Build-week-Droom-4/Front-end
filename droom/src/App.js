@@ -1,20 +1,19 @@
 import React from 'react';
-import CompanyFrom from './components/CompanyForm.js';
+import { CompanyForm, JobOffers, Navigation } from './components'
 import './App.css';
-import JobOffers from './components/JobOffers.js';
-// import OfferList from './components/OfferList.js';
+import { Route } from 'react-router-dom'
 
 
 
 
-function App() {
-  return (
-    <div className="App">
-      <CompanyFrom/>
-      <JobOffers/>
-      {/* <OfferList/> */}
-    </div>
-  );
-}
+
+const App = () => (
+  <div>
+    <Navigation />
+    <Route exact path="/CompanyForm" component={CompanyForm}/>
+    <Route  path="/JobOffers" component={JobOffers}/>
+    
+  </div>
+);
 
 export default App;

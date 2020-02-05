@@ -12,9 +12,10 @@ const JobOffers = (props) => {
       // const id = 1;
   
          axios
-          .get(`https://swapi.co/api/people`)
+          .get(`https://droom4.herokuapp.com/api/postings`)
           .then(response => {
-            setData(response.data.results);
+            console.log (response.data)
+            setData(response.data);
             // console.log("this is job offers response", response )
           })
           .catch(error => {
@@ -32,24 +33,27 @@ const JobOffers = (props) => {
     // const {  stars } = movie;
     return (
       <div className="save-wrapper">
-        {data.map (movie => (
-          <div className="movie-card">
-          <h2>{movie.name}</h2>
+        {data.map (job => (
+          <div key= {job.id} cd className="movie-card">
+          <h2>{job.job_title}</h2>
           <div className="movie-director">
-            Director: <em>{movie.gender}</em>
+            Company: <em>{job.company}</em>
           </div>
           <div className="movie-metascore">
-            Metascore: <strong>{movie.height}</strong>
+            Description:  <strong>{job.job_desc}</strong>
           </div>
-          <h3>Actors</h3>
+          <div className="movie-metascore">
+            Contact:  <strong>{job.phone}</strong>
+          </div>
+          
   
-          )}
+          
         
 
 
           
         
-        <div className="save-button">Save</div>
+        
       </div>
         )
          )} </div>
