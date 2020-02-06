@@ -21,7 +21,7 @@ const JobOffers = (props) => {
           .catch(error => {
             console.error(error);
           });
-  
+  //test 
     },[]);
     
 
@@ -36,16 +36,24 @@ const JobOffers = (props) => {
         {data.map (job => (
           <div key= {job.id} cd className="movie-card">
           <h2>{job.job_title}</h2>
-          <div className="movie-director">
+          <div className="job-company">
             Company: <em>{job.company}</em>
           </div>
-          <div className="movie-metascore">
+          <div className="job-discription">
             Description:  <strong>{job.job_desc}</strong>
           </div>
-          <div className="movie-metascore">
-            Contact:  <strong>{job.phone}</strong>
+          <div className="job-contact">
+            Contact:  <strong>{job.email}</strong>
           </div>
-          
+          <div className="job-url">
+            Website:  <strong>{job.company_url}</strong>
+          </div>
+          <div className="job-level">
+            Exp Level:  <strong>{job.level}</strong>
+          </div>
+          <div className="job-pay">
+            Salary:  <strong>{job.pay }</strong>
+          </div>
   
           
         
