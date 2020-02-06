@@ -1,14 +1,19 @@
 import React from 'react';
-import CompanyFrom from './components/CompanyForm.js';
+import { CompanyForm, JobOffers, Navigation } from './components'
 import './App.css';
+import { Route } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <CompanyFrom/>
-        
-    </div>
-  );
-}
+
+
+
+
+const App = () => (
+  <div>
+    <Navigation />
+    <Route exact path="/CompanyForm" component={CompanyForm}/>
+    <Route  path="/JobOffers" component={JobOffers}/>
+    
+  </div>
+);
 
 export default App;
