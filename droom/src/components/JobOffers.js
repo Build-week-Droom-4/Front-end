@@ -21,7 +21,7 @@ const JobOffers = (props) => {
           .catch(error => {
             console.error(error);
           });
-  
+  //test 
     },[]);
     
 
