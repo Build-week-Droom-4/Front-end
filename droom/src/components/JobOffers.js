@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axiosWithAuth from '../authentication'
-import { connect } from 'react-redux';
-import { deleteJob } from '../actions/DroomActions'
 
 
 const JobOffers = () => {
@@ -54,8 +52,6 @@ const deleteSmurf = (id) =>{
             Salary:  <strong>{job.pay }</strong>
           </div>
           <button onClick={()=>{deleteSmurf(job.id)}}>DELETE</button>
-
-        
       </div>
         )
          )} 
