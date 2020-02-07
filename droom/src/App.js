@@ -1,19 +1,23 @@
 import React from 'react';
-import { CompanyForm, JobOffers, Navigation } from './components'
 import './App.css';
-import { Route } from 'react-router-dom'
+import { CompanyForm, JobOffers, Navigation } from './components'
+import RegisterForm from './components/RegisterForm'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import PrivateRoute from './router/PrivateRoute'
 
 
-
-
-
-const App = () => (
-  <div>
-    <Navigation />
-    <Route exact path="/CompanyForm" component={CompanyForm}/>
-    <Route  path="/JobOffers" component={JobOffers}/>
-    
-  </div>
+function App () {
+  return (
+  <Router>
+    <div className="App">
+      <Navigation />
+     <Switch>
+        <Route exact path='/register' component={RegisterForm} />
+        <PrivateRoute exact path="/jobform" component={CompanyForm}/>
+        <PrivateRoute exact path="/joboffers" component={JobOffers}/>
+     </Switch>
+    </div>
+  </Router>
 );
-
+}
 export default App;

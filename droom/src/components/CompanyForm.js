@@ -1,24 +1,27 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"
+import { connect } from 'react-redux';
+import { postJob } from '../actions/DroomActions'
 
+console.log(postJob)
 
-function Form (props) {
-console.log (props);
+const Form = (props) => {
+console.log (props.postJob);
+
 const [member, setMember] = useState({
-  name:"", position: "", phone:"", email:"", job_desc:"",skills:"", pay:"",
+  company:"", job_title: "", phone:"", email:"", job_desc:"", skills:"", pay:"",
 });
 
 const handleChanges = e => {
 setMember({
     ...member, [e.target.name]: e.target.value});
-console.log(member);
+
 };
 
 const submitForm = e => {
 e.preventDefault();
-console.log(member)
-// props.member(member)
-setMember({name:"", position: "", phone:"", email:"", job_desc:"",skills:"", pay:"", });
+console.log('HI IM INSIDE SUBMIT!!!!')
+props.postJob(member);
 }
 
 return (
@@ -30,7 +33,7 @@ return (
         type="text"
         placeholder="Name"
         onChange={handleChanges}
-        name="Name"
+        name="company"
       />
 
       <label htmlFor="position">Position</label>
@@ -39,7 +42,7 @@ return (
         type="text"
         placeholder="Position"
         onChange={handleChanges}
-        name="position"
+        name="job_title"
       />
 
       <label htmlFor="phone">Contact</label>
@@ -82,9 +85,9 @@ return (
         onChange={handleChanges}
         name="pay"
       />
-      <Link to="/joboffers">
+      {/* <Link to="/joboffers"> */}
       <button type="submit">Become Member</button>
-      </Link>
+      {/* </Link> */}
       </form>
 
 </div>
@@ -92,4 +95,10 @@ return (
 
 }
 
-export default Form;
+
+export default connect(
+  state => {  console.log(state)
+    return { loading: state.PostJobReducer.loading  };
+  },
+  { postJob }
+)(Form);

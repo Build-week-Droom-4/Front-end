@@ -1,40 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axiosWithAuth from '../authentication'
+import { connect } from 'react-redux';
+import { deleteJob } from '../actions/DroomActions'
 
 
-const JobOffers = (props) => {
+const JobOffers = () => {
+
+ 
+  const [data, setData] = useState();
 
   
-
-    const [data, setData] = useState();
-   
     useEffect(() => {
-      // const id = 1;
-  
-         axios
-          .get(`https://droom4.herokuapp.com/api/postings`)
-          .then(response => {
-            console.log (response.data)
-            setData(response.data);
-            // console.log("this is job offers response", response )
-          })
-          .catch(error => {
-            console.error(error);
-          });
-  //test 
-    },[]);
-    
+ axiosWithAuth().get('/postings')
+  .then(response => {  setData(response.data)
+  })
+  .catch(error => { console.log('ERROR', error.response.error)
+  })
+}
+,[data]);
 
-  
+
+const deleteSmurf = (id) =>{
+  axiosWithAuth().delete(`/postings/${id}`).then(res=>{
+      setData(res.data)
+  })
+}
+
     if (!data) {
       return <div>Loading Your Request...</div>;
     }
-  console.log(data);
-    // const {  stars } = movie;
+  
     return (
       <div className="save-wrapper">
         {data.map (job => (
-          <div key= {job.id} cd className="movie-card">
+          <div className="job-card">
           <h2>{job.job_title}</h2>
           <div className="job-company">
             Company: <em>{job.company}</em>
@@ -49,23 +48,21 @@ const JobOffers = (props) => {
             Website:  <strong>{job.company_url}</strong>
           </div>
           <div className="job-level">
-            Exp Level:  <strong>{job.level}</strong>
+            Exp Level:  <strong>{job.skills}</strong>
           </div>
           <div className="job-pay">
             Salary:  <strong>{job.pay }</strong>
           </div>
-  
-          
-        
+          <button onClick={()=>{deleteSmurf(job.id)}}>DELETE</button>
 
-
-          
-        
         
       </div>
         )
-         )} </div>
+         )} 
+        
+         </div>
         )  
 }
-  export default JobOffers;
-  
+ 
+
+export default JobOffers
