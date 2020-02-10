@@ -19,7 +19,7 @@ setMember({
 const submitForm = e => {
 e.preventDefault();
 
-props.postJob(member);
+props.postJob(member, props.history);
 
 if(member.company === ""){
   return alert("Please enter a Company");

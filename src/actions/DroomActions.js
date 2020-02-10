@@ -55,10 +55,11 @@ export const postJob = (jobData, history) => dispatch => {
    axiosWithAuth().post('/postings', jobData )
     .then(response => {  console.log('Do we get to JOB response?', response)
         dispatch({ type: POST_JOB_SUCCESS, payload: response.data})
+        history.push("/joboffers");
     })
     .catch(error => { console.log('ERROR en JOBDATA', error.response.error)
         dispatch({ type: POST_JOB_FAILURE, payload: error.response.error});
-        history.push("/joboffers");
+        
     })
 }
 
