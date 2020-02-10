@@ -132,7 +132,6 @@ const Input = styled.input`
  height: 25px;
  border-radius: 5px;
  width: 200px;
-
 `;
 
 

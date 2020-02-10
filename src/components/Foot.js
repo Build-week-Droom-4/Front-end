@@ -20,7 +20,7 @@ const Foot = styled.div`
   font-size: 0.9rem;
   font-weight: 400;
   height: 150px;
-  margin-top: 100px;
+  margin-top: 60px;
 `;
 
 const Order = styled.div`
