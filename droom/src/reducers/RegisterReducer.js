@@ -6,17 +6,10 @@ import {
       } from '../actions/DroomActions'
 
     
-    
 
-  
-  
       const initialState = {
-          username : '',
           loading: false,
-          role: '',
-          password: '',
-          token: '',
-          companyData: null
+          registerData: null
       }
   
   
@@ -30,7 +23,7 @@ import {
           case POST_COMPANY_SUCCESS:
               return {
                   ...state,
-                  loading : false, token: action.payload
+                  loading : false, registerData: action.payload
               };
               case POST_COMPANY_FAILURE:
                   return {

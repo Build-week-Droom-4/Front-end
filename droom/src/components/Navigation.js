@@ -7,24 +7,21 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 const Nav = props => {
   return (
 
-    <Navigator>
-
-  
+    <Navigator>  
             <NavaLinks>
 
             <Navalogo>DROOM 4</Navalogo>
           
           <NavATags>
                <Router>
-                      <Link to =''> <Nava>Home</Nava></Link>
-                      
-                      <Link to="/register"><Nava>Register </Nava></Link>
-                   
-                       <Link to="/jobform"><Nava>App </Nava></Link>
+                      <Nava><a href="https://trusting-villani-0b8d70.netlify.com/"> Home</a> </Nava>
+
+                    <Link to="/"><Nava>REGISTER</Nava></Link>
+                       <Link to="/jobform"><Nava>ADD A JOB</Nava></Link>
                        
-                      <Link to="/"><Nava>Team</Nava></Link>
+               <Nava>  <Link to="/"></Link></Nava>
               
-                      <Link to="/"><Nava>Contacto</Nava> </Link>
+                <Nava>      <Link to="/"></Link></Nava>
                </Router>
             
                
@@ -50,18 +47,27 @@ const Navigator = styled.div`
   position: sticky;
   display: flex;
   align-items: center;
-  background: white;
+  margin-bottom: 70px;
+`;
+
+
+const NavaLinks = styled.div`
+display: flex;
+justify-content: space-between;
+width: 1500px;
+height: 60px;
+margin: 0 auto;
 `;
 
 const Navalogo = styled.div`
-  width: 10%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  font-size: 14px;
+  font-size: 1.7rem;
   font-weight: 700;
-  color: #032741;
+  color: dodgerblue;
+  margin-right: 250px;
   `;
 
   
@@ -71,14 +77,6 @@ height: 50px;
 
 `;
 
-const NavaLinks = styled.div`
-display: flex;
-justify-content: space-between;
-width: 1000px;
-height: 60px;
-margin: 0 auto;
-
-`;
 
 
 const NavATags = styled.div`
@@ -89,7 +87,8 @@ align-items: center;
 
 
 const Nava = styled.div`
-color: #032741;
+text-decoration: none;
+color: black;
 font-weight: 600;
 letter-spacing: 1.1px;
 text-transform: none;

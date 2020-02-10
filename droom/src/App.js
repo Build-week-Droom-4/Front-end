@@ -3,7 +3,7 @@ import { CompanyForm, JobOffers, Navigation } from './components'
 import Foot from './components/Foot'
 import "./App.css";
 import RegisterForm from './components/RegisterForm'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import PrivateRoute from './router/PrivateRoute'
 
 
@@ -22,22 +22,17 @@ const App =  () => {
 
   return (
     <div className="App">
+       <GlobalStyles/>
+  <BrowserRouter>
     <Navigation />
-  <Router>
-    <GlobalStyles/>
-   
-
      <Switch>
-       
-        <Route exact path='/register' component={RegisterForm} />
         <PrivateRoute exact path="/jobform" component={CompanyForm}/>
         <PrivateRoute exact path="/joboffers" component={JobOffers}/>
+        <Route exact path="/" component={RegisterForm} />
      </Switch>
-
-
-    
-  </Router>
-  <Foot />
+     <Foot />
+  </BrowserRouter>
+  
   </div>
 )
 }

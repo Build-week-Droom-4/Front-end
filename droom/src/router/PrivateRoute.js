@@ -10,7 +10,7 @@ const PrivateRoute = ({component: Component, ...rest}) => {
     {...rest}
     render={props=>{
         console.log('THIS IS COMPONENT', Component)
-        return token ? <Component {...props} /> : <Redirect to="/register" />
+        return token ? <Component {...props} /> : <Redirect to="/" />
     }}
     
     />

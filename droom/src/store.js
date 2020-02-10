@@ -5,3 +5,6 @@ import rootReducer from './reducers'
 const middleWare = [thunk]
 
 export default createStore(rootReducer, applyMiddleware(...middleWare))
+
+
+

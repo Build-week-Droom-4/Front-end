@@ -9,11 +9,11 @@ const Foot = styled.div`
   justify-content: space-around;
   align-items: center;
   text-decoration: none;
-  background: #1f2533;
+  background: dodgerblue;
   text-align: center;
   font-size: 0.9rem;
   font-weight: 400;
-  height: 130px;
+  height: 230px;
   margin-top: 100px;
   
 
