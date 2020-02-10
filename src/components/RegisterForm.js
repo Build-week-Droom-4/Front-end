@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { postCompany, loginCompany } from '../actions/DroomActions'
 import styled from "styled-components";
-import axiosWithAuth from '../authentication';
 import loader from '../images/loader.png'
 import checked from '../images/checked.png'
 
@@ -31,10 +30,13 @@ const RegisterForm = (props) => {
         e.preventDefault()
         props.postCompany(regInfo, props.history)
         if(regInfo.username === ""){
-          return alert("Please enter a username");
+          return alert("Please enter the Company Name");
         };
         if(regInfo.password === ""){
           return alert("Please enter a password");
+        };
+        if(regInfo.password.length < 8){
+          return alert("Passwords must be at least 8 letters long");
         };
     }
 
@@ -49,10 +51,10 @@ const RegisterForm = (props) => {
     const handleLogin = (e) => {
       e.preventDefault()
       props.loginCompany(logInfo, props.history)
-      if(regInfo.username === ""){
+      if(logInfo.username === ""){
         return alert("Please enter a username");
       };
-      if(regInfo.password === ""){
+      if(logInfo.password === ""){
         return alert("Please enter a password");
       };
   }
@@ -65,9 +67,9 @@ const RegisterForm = (props) => {
              
            <Form onSubmit={handleRegister}>
                <Input name='username' type='text' placeholder='name' onChange={handleChange} value={regInfo.username} />
-               <select name="role" type='select' name="role" value={regInfo.role} className='select-input'>
-                 <option value="employer">Employer</option>
-                 <option value="employee">Employee</option>
+               <select name="role" type='select' name="role" className='select-input' onChange={handleChange}>
+                 <option>employer</option>
+                 <option>employee</option>
                </select>
                <Input name='password' type='password' placeholder='password' onChange={handleChange} value={regInfo.password} />
                {console.log(regInfo)}
@@ -108,8 +110,7 @@ const Forms = styled.form`
   justify-content: space-around;
   padding-left: 350px;
   padding-right: 350px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  margin-top: 70px;
   `;
 
 
@@ -124,12 +125,11 @@ const Form = styled.form`
   background: #fff;
   padding: 50px;
   border-radius: 5px;
-  margin-bottom: 20px;
   box-shadow: 0 0 32px rgba(0, 0, 0, 0.16);
   `;
 
 const Input = styled.input`
- height: 35px;
+ height: 25px;
  border-radius: 5px;
  width: 200px;
 
@@ -150,8 +150,8 @@ const Button = styled.button`
 &:hover {
   background-color: #db74ff;
   border: 1px solid #db74ff;
-  -webkit-transition: background-color 1s ease-in; 
-        transition: background-color 1s ease-in;
+  -webkit-transition: background-color 0.5s ease-in; 
+        transition: background-color 0.5s ease-in;
   }
 
 `;

@@ -19,11 +19,6 @@ const JobOffers = () => {
 ,[data]);
 
 
-const deleteJob = (id) =>{
-  axiosWithAuth().delete(`/postings/${id}`).then(res=>{
-      setData(res.data)
-  })
-}
 
     if (!data) {
       return <div>Loading Your Request...</div>;
@@ -53,7 +48,7 @@ const deleteJob = (id) =>{
             <div className="job-pay">
               Salary:  <strong>{job.pay }</strong>
             </div>
-            <button onClick={()=>{deleteJob(job.id)}}>DELETE</button>
+            <Button>APPLY</Button>
        </Card>
         )
          )} 
@@ -80,8 +75,6 @@ const Cards = styled.div`
   text-align: center;
   margin-top: 100px;
   height: 90% vh;
-  padding-top: 50px;
-  padding-bottom: 70px;
 `;
 
 
@@ -92,10 +85,37 @@ const Card = styled.div`
   align-items: center;
   text-align: center;
   width: 400px;
-  height: 400px;
+  height: 300px;
   border-radius: 5px;
   background: white;
   box-shadow: 0 0 32px rgba(0, 0, 0, 0.16);
   padding: 20px;
   margin-bottom: 20px;
+`;
+
+const Name = styled.div`
+  color: #5469d4;
+`;
+
+
+
+const Button = styled.button`
+ height: 30px;
+ width: 80px;
+ border-radius: 5px;
+ margin-top: 25px;
+ font-weight: 700;
+ font-size: 0.8rem;
+ background: #db74ff;
+ color: white;
+ border: 1px solid #db74ff;
+
+ 
+&:hover {
+  background-color: dodgerblue;
+  border: 1px solid dodgerblue;
+  -webkit-transition: background-color 0.5s ease-in; 
+        transition: background-color 0.5s ease-in;
+  }
+
 `;

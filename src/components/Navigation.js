@@ -10,14 +10,14 @@ const Nav = props => {
     <Navigator>  
             <NavaLinks>
 
-            <Navalogo>droom</Navalogo>
+            <Navalogo><LightBlue>droom</LightBlue> <DarkBlue>APP</DarkBlue></Navalogo>
           
           <NavATags>
             
                       <a href="https://trusting-villani-0b8d70.netlify.com/"><Nava> Home</Nava></a> 
 
                     <Link to="/"><Nava>REGISTER</Nava></Link>
-                       <Link to="/jobform"><Nava>ADD A JOB</Nava></Link>
+                       <Link to="/jobform"><Nava>ADD JOB</Nava></Link>
                        <Link to="/joboffers"><Nava>JOBS</Nava></Link>
                        
   
@@ -44,7 +44,7 @@ const Navigator = styled.div`
   position: sticky;
   display: flex;
   align-items: center;
-  margin-bottom: 70px;
+  margin-bottom: 50px;
   background: white;
   box-shadow: 0 0 32px rgba(0, 0, 0, 0.16);
 `;
@@ -53,20 +53,33 @@ const Navigator = styled.div`
 const NavaLinks = styled.div`
 display: flex;
 justify-content: space-between;
-width: 1500px;
+width: 1200px;
 height: 60px;
 margin: 0 auto;
 `;
 
 const Navalogo = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
   font-size: 1.7rem;
   font-weight: 700;
   color: dodgerblue;
   margin-right: 250px;
+  width: 300px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  `;
+
+  const LightBlue = styled.div`
+  color: dodgerblue;
+  margin-right: 2px;
+  `;
+
+  const DarkBlue = styled.div`
+  color: #3c4257;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-top: 2px;
   `;
 
   

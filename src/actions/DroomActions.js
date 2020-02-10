@@ -25,8 +25,14 @@ export const postCompany = (registerData, history) => dispatch => {
    axios.post('https://droom4.herokuapp.com/api/auth/register', registerData )
     .then(response => {  console.log('Do we get to response?', response);
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("role", response.data.role )
         dispatch({ type: POST_COMPANY_SUCCESS, payload: response.data })
-        history.push("/jobform");
+        if(response.data.role === "employer"){
+            history.push("/jobform");
+          };
+          if(response.data.role === "employee"){
+            history.push("/joboffers");
+          };
     })
     .catch(error => { console.log('ERROR', error.response.error)
         dispatch({ type: POST_COMPANY_FAILURE, payload: error.response.error})
@@ -39,11 +45,19 @@ export const loginCompany = (loginData, history) => dispatch => {
    axiosWithAuth().post('/auth/login', loginData )
     .then(response => {  console.log('Do we get to response?', response);
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("role", response.data.role );
         dispatch({ type: LOGIN_COMPANY_SUCCESS, payload: response.data })
-        history.push("/jobform");
+        if(response.data.role === "employer"){
+            history.push("/jobform");
+          };
+          if(response.data.role === "employee"){
+            history.push("/joboffers");
+          };
+        
     })
     .catch(error => { console.log('ERROR', error.response.error)
         dispatch({ type: LOGIN_COMPANY_FAILURE, payload: error.response.error})
+        return alert("Not a Valid Login");
     })
 }
 
@@ -55,10 +69,11 @@ export const postJob = (jobData, history) => dispatch => {
    axiosWithAuth().post('/postings', jobData )
     .then(response => {  console.log('Do we get to JOB response?', response)
         dispatch({ type: POST_JOB_SUCCESS, payload: response.data})
-        history.push("/joboffers");
+        history.push("/yourjobs");
+        localStorage.setItem('id', response.data.user_id)
     })
-    .catch(error => { console.log('ERROR en JOBDATA', error.response.error)
-        dispatch({ type: POST_JOB_FAILURE, payload: error.response.error});
+    .catch(error => { console.log('ERROR en JOBDATA', error)
+        dispatch({ type: POST_JOB_FAILURE, payload: error});
         
     })
 }

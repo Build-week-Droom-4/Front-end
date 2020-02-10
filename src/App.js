@@ -5,6 +5,7 @@ import "./App.css";
 import RegisterForm from './components/RegisterForm'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import PrivateRoute from './router/PrivateRoute'
+import CompanyJobs from './components/CompanyJobs'
 
 
 const App =  () => {
@@ -16,6 +17,7 @@ const App =  () => {
      <Switch>
         <Route exact path="/" component={RegisterForm} />
         <PrivateRoute exact path="/jobform" component={CompanyForm}/>
+        <PrivateRoute exact path="/yourjobs" component={CompanyJobs}/>
         <PrivateRoute exact path="/joboffers" component={JobOffers}/>
      </Switch>
      <Foot />

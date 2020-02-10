@@ -53,7 +53,7 @@ return (
       <Input
         id="name"
         type="text"
-        // value= {member.company}
+        placeholder="e.g: Microsoft"
         onChange={handleChanges}
         name="company"
       />
@@ -63,7 +63,7 @@ return (
       <Input
         id="phone"
         type="text"
-        placeholder="Number"
+        placeholder="e.g: +14244071014"
         onChange={handleChanges}
         name="phone"
       />
@@ -71,7 +71,7 @@ return (
       <Input
         id="phoemailne"
         type="text"
-        placeholder="E-Address"
+        placeholder="e.g: jobs@droom.com"
         onChange={handleChanges}
         name="email"
       />
@@ -80,7 +80,7 @@ return (
       <Input
         id="position"
         type="text"
-        placeholder="Position"
+        placeholder="e.g: Engineer"
         onChange={handleChanges}
         name="job_title"
       /> 
@@ -89,7 +89,7 @@ return (
       <Input
         id="skills"
         type="text"
-        placeholder="Skills"
+        placeholder="e.g: JavaScript, React, Node"
         onChange={handleChanges}
         name="skills"
       />
@@ -97,7 +97,7 @@ return (
       <Input
         id="pay"
         type="text"
-        placeholder="Pay"
+        placeholder="e.g: $80.000"
         onChange={handleChanges}
         name="pay"
       />
@@ -105,7 +105,7 @@ return (
       <Input
         id="job_desc"
         type="text"
-        placeholder="Description"
+        placeholder="describe the position"
         onChange={handleChanges}
         name="job_desc"
       />
@@ -155,12 +155,13 @@ color: #3c4257;
 
 
 const Input = styled.input`
- height: 30px;
+ height: 25px;
  border-radius: 5px;
  width: 200px;
  margin-bottom: 5px;
 
 `;
+
 
 
 const Button = styled.button`
@@ -177,11 +178,12 @@ const Button = styled.button`
 &:hover {
   background-color: #db74ff;
   border: 1px solid #db74ff;
-  -webkit-transition: background-color 1s ease-in; 
-        transition: background-color 1s ease-in;
+  -webkit-transition: background-color 0.5s ease-in; 
+        transition: background-color 0.5s ease-in;
   }
 
 `;
+
 
   
 
