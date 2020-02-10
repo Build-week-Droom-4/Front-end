@@ -10,14 +10,15 @@ const Nav = props => {
     <Navigator>  
             <NavaLinks>
 
-            <Navalogo>DROOM 4</Navalogo>
+            <Navalogo>droom</Navalogo>
           
           <NavATags>
             
-                      <Nava><a href="https://trusting-villani-0b8d70.netlify.com/"> Home</a> </Nava>
+                      <a href="https://trusting-villani-0b8d70.netlify.com/"><Nava> Home</Nava></a> 
 
                     <Link to="/"><Nava>REGISTER</Nava></Link>
                        <Link to="/jobform"><Nava>ADD A JOB</Nava></Link>
+                       <Link to="/joboffers"><Nava>JOBS</Nava></Link>
                        
   
         
@@ -44,6 +45,8 @@ const Navigator = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 70px;
+  background: white;
+  box-shadow: 0 0 32px rgba(0, 0, 0, 0.16);
 `;
 
 
@@ -84,7 +87,7 @@ align-items: center;
 
 const Nava = styled.div`
 text-decoration: none;
-color: black;
+color:  #3c4257;
 font-weight: 600;
 letter-spacing: 1.1px;
 text-transform: none;

@@ -27,8 +27,8 @@ const Order = styled.div`
 
 const Foota = styled.div`
   color: white;
-  font-weight: 400;
-  font-size: 0.8rem;
+  font-weight: 700;
+  font-size: 0.9rem;
   font-weight: 600;
   line-height: 1.7rem;
 

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { postCompany } from '../actions/DroomActions'
+import { postCompany, loginCompany } from '../actions/DroomActions'
 import styled from "styled-components";
 import axiosWithAuth from '../authentication';
+import loader from '../images/loader.png'
+import checked from '../images/checked.png'
 
 const RegisterForm = (props) => {
 
@@ -42,6 +44,19 @@ const RegisterForm = (props) => {
         [e.target.name] : e.target.value  
       })
     }
+
+    
+    const handleLogin = (e) => {
+      e.preventDefault()
+      props.loginCompany(logInfo, props.history)
+      if(regInfo.username === ""){
+        return alert("Please enter a username");
+      };
+      if(regInfo.password === ""){
+        return alert("Please enter a password");
+      };
+  }
+
     
    
     return (
@@ -59,7 +74,7 @@ const RegisterForm = (props) => {
       <Button>REGISTER</Button>
            </Form>
   
-           <Form onSubmit={handleRegister}>
+           <Form onSubmit={handleLogin}>
                <Input name='username' type='text' onChange={handleLoginChange} placeholder='name' value={logInfo.username} />
                <Input name='password' type='password' onChange={handleLoginChange} placeholder='password'  value={logInfo.password} />
                {console.log(logInfo)}
@@ -67,7 +82,7 @@ const RegisterForm = (props) => {
            </Form>
      </Forms>
 
-         {props.loading ?  <h2>Loading</h2> : <h2>Not Loading</h2>}
+         {props.loading ?  <div><img src={loader} className='icon'/></div> : <div><img src={checked} className='icon'/></div> }
       </div>
     )
 }
@@ -79,7 +94,7 @@ export default connect(
   state => {  
     return { loading: state.RegisterReducer.loading };
   },
-  { postCompany }
+  { postCompany: postCompany, loginCompany: loginCompany }
 )(RegisterForm);
 
 
@@ -106,8 +121,7 @@ const Form = styled.form`
   align-items: center;
   justify-content: space-around;
   height: 300px;
-  border: 1px solid black;
-  background: dodgerblue;
+  background: #fff;
   padding: 50px;
   border-radius: 5px;
   margin-bottom: 20px;
@@ -123,17 +137,21 @@ const Input = styled.input`
 
 
 const Button = styled.button`
- height: 50px;
- width: 250px;
- border: 2px solid pink;
+ height: 40px;
+ width: 120px;
  border-radius: 5px;
  margin-top: 25px;
+ font-weight: 700;
+ font-size: 0.8rem;
+ background: dodgerblue;
+ color: white;
+ border: 1px solid dodgerblue;
  
 &:hover {
-  background-color: #ED1D68;
+  background-color: #db74ff;
+  border: 1px solid #db74ff;
   -webkit-transition: background-color 1s ease-in; 
         transition: background-color 1s ease-in;
-  
   }
 
 `;

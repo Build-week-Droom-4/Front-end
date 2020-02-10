@@ -7,7 +7,7 @@ import styled from "styled-components";
 const JForm = (props) => {
 
 const [member, setMember] = useState({
-  company:"", job_title: "", phone:"", email:"", job_desc:"", skills:"", pay:"",
+  company: "", job_title: "", phone:"", email:"", job_desc:"", skills:"", pay:"",
 });
 
 const handleChanges = e => {
@@ -45,19 +45,21 @@ if(member.pay === ""){
 }
 
 return (
-<div>     <Name>You are logged in as: {props.datos.username}</Name>
+<div>     
+        {/* <Name>You are logged in as: {props.datos.username}</Name> */}
+
       <JobForm onSubmit={submitForm}>
-      <label htmlFor="name">Company Name</label>
+      <Label>Company Name</Label>
       <Input
         id="name"
         type="text"
-        placeholder={props.datos.username}
+        // value= {member.company}
         onChange={handleChanges}
         name="company"
       />
 
 
-      <label htmlFor="phone">Company Phone Number</label>
+      <Label>Phone Number</Label>
       <Input
         id="phone"
         type="text"
@@ -65,7 +67,7 @@ return (
         onChange={handleChanges}
         name="phone"
       />
-      <label htmlFor="email">Contact Email</label>
+      <Label>Contact Email</Label>
       <Input
         id="phoemailne"
         type="text"
@@ -74,7 +76,7 @@ return (
         name="email"
       />
 
-<label htmlFor="position">Job Position</label>
+      <Label>Job Position</Label>
       <Input
         id="position"
         type="text"
@@ -83,7 +85,7 @@ return (
         name="job_title"
       /> 
 
-      <label htmlFor="skills">Required Skills</label>
+      <Label>Required Skills</Label>
       <Input
         id="skills"
         type="text"
@@ -91,7 +93,7 @@ return (
         onChange={handleChanges}
         name="skills"
       />
-      <label htmlFor="pay">Salary</label>
+      <Label>Salary</Label>
       <Input
         id="pay"
         type="text"
@@ -99,7 +101,7 @@ return (
         onChange={handleChanges}
         name="pay"
       />
-            <label htmlFor="job_desc">Job Description</label>
+        <Label>Job Description</Label>
       <Input
         id="job_desc"
         type="text"
@@ -108,9 +110,8 @@ return (
         name="job_desc"
       />
 
-      {/* <Link to="/joboffers"> */}
-      <Button type="submit">Become Member</Button>
-      {/* </Link> */}
+     
+      <Button>Post Job</Button>
       </JobForm>
 
 </div>
@@ -132,19 +133,26 @@ export default connect(
 
 const JobForm = styled.form`
   margin: 0 auto;
-  width: 400px;;
+  width: 500px;;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   height: 700px;
-  border: 1px solid black;
-  background: dodgerblue;
+  background: #fff;
   padding: 20px;
   border-radius: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 70px;
   box-shadow: 0 0 32px rgba(0, 0, 0, 0.16);
   `;
+
+  
+const Label = styled.label`
+font-size: 0.9rem;
+font-weight: 600;
+color: #3c4257;
+`;
+
 
 const Input = styled.input`
  height: 30px;
@@ -154,18 +162,23 @@ const Input = styled.input`
 
 `;
 
+
 const Button = styled.button`
- height: 50px;
- width: 250px;
- border: 2px solid pink;
+ height: 40px;
+ width: 120px;
  border-radius: 5px;
  margin-top: 25px;
+ font-weight: 700;
+ font-size: 0.8rem;
+ background: dodgerblue;
+ color: white;
+ border: 1px solid dodgerblue;
  
 &:hover {
-  background-color: #ED1D68;
+  background-color: #db74ff;
+  border: 1px solid #db74ff;
   -webkit-transition: background-color 1s ease-in; 
         transition: background-color 1s ease-in;
-  
   }
 
 `;

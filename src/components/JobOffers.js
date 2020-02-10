@@ -93,8 +93,9 @@ const Card = styled.div`
   text-align: center;
   width: 400px;
   height: 400px;
-  border: 2px solid gainsboro;
   border-radius: 5px;
+  background: white;
   box-shadow: 0 0 32px rgba(0, 0, 0, 0.16);
   padding: 20px;
+  margin-bottom: 20px;
 `;
