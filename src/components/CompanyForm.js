@@ -51,7 +51,7 @@ return (
       <Input
         id="name"
         type="text"
-        value={props.datos.username}
+        placeholder={props.datos.username}
         onChange={handleChanges}
         name="company"
       />
