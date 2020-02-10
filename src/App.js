@@ -8,13 +8,13 @@ import PrivateRoute from './router/PrivateRoute'
 
 
 
-import { createGlobalStyle } from "styled-components";
-const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Fira Sans');
-  body {
-    font-family: 'Fira Sans', sans-serif;
-  }
-`
+// import { createGlobalStyle } from "styled-components";
+// const GlobalStyles = createGlobalStyle`
+//   @import url('https://fonts.googleapis.com/css?family=Fira Sans');
+//   body {
+//     font-family: 'Fira Sans', sans-serif;
+//   }
+// `
 
 
 
@@ -22,7 +22,7 @@ const App =  () => {
 
   return (
     <div className="App">
-       <GlobalStyles/>
+       {/* <GlobalStyles/> */}
   <BrowserRouter>
     <Navigation />
      <Switch>
