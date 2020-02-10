@@ -26,9 +26,9 @@ const App =  () => {
   <BrowserRouter>
     <Navigation />
      <Switch>
+        <Route exact path="/" component={RegisterForm} />
         <PrivateRoute exact path="/jobform" component={CompanyForm}/>
         <PrivateRoute exact path="/joboffers" component={JobOffers}/>
-        <Route exact path="/" component={RegisterForm} />
      </Switch>
      <Foot />
   </BrowserRouter>

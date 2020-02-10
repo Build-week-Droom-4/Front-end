@@ -5,6 +5,10 @@ export const POST_COMPANY_REGISTER = 'POST_COMPANY_REGISTER';
 export const POST_COMPANY_SUCCESS = 'POST_COMPANY_SUCCESS';
 export const POST_COMPANY_FAILURE = 'POST_COMPANY_FAILURE';
 
+export const LOGIN_COMPANY_REGISTER = 'LOGIN_COMPANY_REGISTER';
+export const LOGIN_COMPANY_SUCCESS = 'LOGIN_COMPANY_SUCCESS';
+export const LOGIN_COMPANY_FAILURE = 'LOGIN_COMPANY_FAILURE';
+
 export const POST_JOB_INITIAL = 'POST_JOB_INITIAL';
 export const POST_JOB_SUCCESS = 'POST_JOB_SUCCESS';
 export const POST_JOB_FAILURE = 'POST_JOB_FAILURE';
@@ -28,6 +32,21 @@ export const postCompany = (registerData, history) => dispatch => {
         dispatch({ type: POST_COMPANY_FAILURE, payload: error.response.error})
     })
 }
+
+export const loginCompany = (loginData, history) => dispatch => {
+    dispatch({ type: LOGIN_COMPANY_REGISTER});
+ 
+   axiosWithAuth().post('/auth/login', loginData )
+    .then(response => {  console.log('Do we get to response?', response);
+        localStorage.setItem("token", response.data.token);
+        dispatch({ type: LOGIN_COMPANY_SUCCESS, payload: response.data })
+        history.push("/jobform");
+    })
+    .catch(error => { console.log('ERROR', error.response.error)
+        dispatch({ type: LOGIN_COMPANY_FAILURE, payload: error.response.error})
+    })
+}
+
 
 
 export const postJob = (jobData, history) => dispatch => {

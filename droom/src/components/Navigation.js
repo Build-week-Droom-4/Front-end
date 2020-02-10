@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
@@ -13,18 +13,14 @@ const Nav = props => {
             <Navalogo>DROOM 4</Navalogo>
           
           <NavATags>
-               <Router>
+            
                       <Nava><a href="https://trusting-villani-0b8d70.netlify.com/"> Home</a> </Nava>
 
                     <Link to="/"><Nava>REGISTER</Nava></Link>
                        <Link to="/jobform"><Nava>ADD A JOB</Nava></Link>
                        
-               <Nava>  <Link to="/"></Link></Nava>
-              
-                <Nava>      <Link to="/"></Link></Nava>
-               </Router>
-            
-               
+  
+        
           </NavATags>
         
             </NavaLinks>  

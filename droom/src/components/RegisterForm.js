@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { postCompany } from '../actions/DroomActions'
 import styled from "styled-components";
+import axiosWithAuth from '../authentication';
 
 const RegisterForm = (props) => {
 
@@ -11,6 +12,11 @@ const RegisterForm = (props) => {
         role: 'employer',
         password: ''
     })
+
+    const [logInfo, setLogInfo] = useState({
+      username: '',
+      password: ''
+  })
 
     const handleChange = (e) =>{
         setRegInfo({
@@ -30,9 +36,14 @@ const RegisterForm = (props) => {
         };
     }
 
-    // localStorage.setItem('token', empresa.token)
-
-
+    const handleLoginChange = (e) =>{
+      setLogInfo({
+        ...logInfo, 
+        [e.target.name] : e.target.value  
+      })
+    }
+    
+   
     return (
       <div>
      <Forms>
@@ -49,18 +60,18 @@ const RegisterForm = (props) => {
            </Form>
   
            <Form onSubmit={handleRegister}>
-               <Input name='username' type='text' placeholder='name' value={regInfo.username} />
-               <Input name='password' type='password' placeholder='password'  value={regInfo.password} />
-               {console.log(regInfo)}
+               <Input name='username' type='text' onChange={handleLoginChange} placeholder='name' value={logInfo.username} />
+               <Input name='password' type='password' onChange={handleLoginChange} placeholder='password'  value={logInfo.password} />
+               {console.log(logInfo)}
       <Button>LOGIN</Button>
            </Form>
      </Forms>
-
 
          {props.loading ?  <h2>Loading</h2> : <h2>Not Loading</h2>}
       </div>
     )
 }
+
 
 
 

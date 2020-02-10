@@ -6,9 +6,6 @@ import styled from "styled-components";
 
 const JForm = (props) => {
 
- 
-
-
 const [member, setMember] = useState({
   company:"", job_title: "", phone:"", email:"", job_desc:"", skills:"", pay:"",
 });
