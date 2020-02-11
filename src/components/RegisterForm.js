@@ -84,7 +84,7 @@ const RegisterForm = (props) => {
            </Form>
      </Forms>
 
-         {props.loading ?  <div><img src={loader} className='icon'/></div> : <div><img src={checked} className='icon'/></div> }
+         {/* {props.loading ?  <div><img src={loader} className='icon'/></div> : <div><img src={checked} className='icon'/></div> } */}
       </div>
     )
 }
