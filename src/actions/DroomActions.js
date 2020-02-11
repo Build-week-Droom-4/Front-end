@@ -36,6 +36,8 @@ export const postCompany = (registerData, history) => dispatch => {
     })
     .catch(error => { console.log('ERROR', error.response.error)
         dispatch({ type: POST_COMPANY_FAILURE, payload: error.response.error})
+        return alert("That Company Already Exists");
+
     })
 }
 

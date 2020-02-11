@@ -18,6 +18,10 @@ const JobOffers = () => {
 }
 ,[data]);
 
+const clickOffer = (e) => {
+  return alert(`Your applied to the ${e} position, Thank You!`);
+}
+
 
 
     if (!data) {
@@ -48,7 +52,7 @@ const JobOffers = () => {
             <div className="job-pay">
               Salary:  <strong>{job.pay }</strong>
             </div>
-            <Button>APPLY</Button>
+            <Button onClick={(e) => clickOffer(job.job_title)}>APPLY</Button>
        </Card>
         )
          )} 
